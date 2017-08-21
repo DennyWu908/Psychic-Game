@@ -18,9 +18,26 @@ var currentAnswers = document.getElementById("playerInput");
 
 var gameState = {
 
-	wins = 0
-	losses = 0
-	guessLeft = 9
+	wins = 0,
+	losses = 0,
+	guessLeft = 9,
 
-	
+	winGame: function() {
+
+		this.wins = this.wins + 1
+		playerWins.textContent = "Wins: " + this.wins
+	}
+
+	loseGame: function() {
+
+		this.losses = this.losses + 1
+		playerLoss.textContent = "Losses: " + this.losses
+	}
+
+	missGuess: function() {
+
+		this.guessLeft = this.guessLeft - 1
+		guessesLeft.textContent = "Guesses Left: " + this.guessLeft
+	}
+
 }
