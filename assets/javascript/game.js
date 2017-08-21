@@ -4,7 +4,7 @@ var alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
 // An array containing the user's guesses.
 
-var userGuess = []
+var userGuesses = []
 
 // The following four variables are intended to update the player's score (wins and losses), reamining chances at guessing, and the letters they've already guessed.
 
@@ -51,22 +51,24 @@ var gameState = {
 
 document.onkeyup = function(event) {
 
-	var userGuess = event.key;
+	var userAnswer = event.key;
 	var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
-	// console.log(computerGuess);
+	console.log(computerGuess);
 
-	if (userGuess === computerGuess) {
+	if (userAnswer === computerGuess) {
 		gameState.winGame()
 	}
 	else {
 		gameState.missGuess();
-		userGuess.push(computerGuess);
-		computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
+		userGuesses.push(userAnswer);
+		//for (var i = 0; i < userGuesses.length; i++) {
+			playerInput.textContent = "Your guesses so far: " + userGuesses.toString();
+		//}
 	}
 
 	if (guessLeft <= 0) {
 		gameState.loseGame
 		gameState.outOfGuess
-		userGuess = []
+		userGuesses = []
 	}
 }
