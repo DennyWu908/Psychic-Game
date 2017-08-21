@@ -47,7 +47,7 @@ var gameState = {
 
 };
 
-// The following is the code that governs gameplay. I suspect there is a problem with scope. The push function and outOfGuess don't seem to be working correctly.
+// The following is the code that governs gameplay.
 
 document.onkeyup = function(event) {
 
@@ -61,14 +61,12 @@ document.onkeyup = function(event) {
 	else {
 		gameState.missGuess();
 		userGuesses.push(userAnswer);
-		//for (var i = 0; i < userGuesses.length; i++) {
-			playerInput.textContent = "Your guesses so far: " + userGuesses.toString();
-		//}
+		playerInput.textContent = "Your guesses so far: " + userGuesses.toString();
 	}
 
 	if (gameState.guessLeft <= 0) {
-		gameState.loseGame
-		gameState.outOfGuess
+		gameState.loseGame()
+		gameState.outOfGuess()
 		userGuesses = []
 	}
 }
