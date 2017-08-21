@@ -40,4 +40,32 @@ var gameState = {
 		guessesLeft.textContent = "Guesses Left: " + this.guessLeft
 	}
 
+	outOfGuess: function() {
+
+		this.guessLeft = 9
+	}
+
+}
+
+// The following is the code that governs gameplay.
+
+document.onkeyup = function(event) {
+
+	var userGuess = event.key;
+	var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
+
+	if (userGuess === computerGuess) {
+		gameState.winGame()
+	}
+	else {
+		gameState.missGuess();
+		userGuess.push(computerGuess);
+		computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
+	}
+
+	if (guessLeft <= 0) {
+		gameState.loseGame
+		gameState.outOfGuess
+		userGuess = []
+	}
 }
