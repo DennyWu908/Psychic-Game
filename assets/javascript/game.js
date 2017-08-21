@@ -53,7 +53,7 @@ document.onkeyup = function(event) {
 
 	var userGuess = event.key;
 	var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
-	//console.log(computerGuess);
+	// console.log(computerGuess);
 
 	if (userGuess === computerGuess) {
 		gameState.winGame()
