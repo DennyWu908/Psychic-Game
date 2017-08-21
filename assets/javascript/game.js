@@ -66,7 +66,7 @@ document.onkeyup = function(event) {
 		//}
 	}
 
-	if (guessLeft <= 0) {
+	if (gameState.guessLeft <= 0) {
 		gameState.loseGame
 		gameState.outOfGuess
 		userGuesses = []
