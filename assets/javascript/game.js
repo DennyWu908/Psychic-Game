@@ -26,12 +26,14 @@ var gameState = {
 
 		this.wins = this.wins + 1
 		playerWins.textContent = "Wins: " + this.wins
+		this.guessLeft = 9
 	},
 
 	loseGame: function() {
 
 		this.losses = this.losses + 1
 		playerLoss.textContent = "Losses: " + this.losses
+		this.guessLeft = 9
 	},
 
 	missGuess: function() {
@@ -40,10 +42,10 @@ var gameState = {
 		guessesLeft.textContent = "Guesses Left: " + this.guessLeft
 	},
 
-	outOfGuess: function() {
+	// outOfGuess: function() {
 
-		this.guessLeft = 9
-	}
+	// 	this.guessLeft = 9
+	// }
 
 };
 
@@ -57,6 +59,9 @@ document.onkeyup = function(event) {
 
 	if (userAnswer === computerGuess) {
 		gameState.winGame()
+		userGuesses.push(userAnswer);
+		playerInput.textContent = "Your guesses so far: " + userGuesses.toString();
+		userGuesses = []
 	}
 	else {
 		gameState.missGuess();
@@ -66,7 +71,6 @@ document.onkeyup = function(event) {
 
 	if (gameState.guessLeft <= 0) {
 		gameState.loseGame()
-		gameState.outOfGuess()
 		userGuesses = []
 	}
 }
