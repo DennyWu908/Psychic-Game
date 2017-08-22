@@ -40,12 +40,7 @@ var gameState = {
 
 		this.guessLeft = this.guessLeft - 1
 		guessesLeft.textContent = "Guesses Left: " + this.guessLeft
-	},
-
-	// outOfGuess: function() {
-
-	// 	this.guessLeft = 9
-	// }
+	}
 
 };
 
