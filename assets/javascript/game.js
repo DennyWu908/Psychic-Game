@@ -26,6 +26,7 @@ var gameState = {
 
 		this.wins = this.wins + 1
 		playerWins.textContent = "Wins: " + this.wins
+		alert("You win!")
 		this.guessLeft = 9
 	},
 
@@ -33,6 +34,7 @@ var gameState = {
 
 		this.losses = this.losses + 1
 		playerLoss.textContent = "Losses: " + this.losses
+		alert("Sorry, you lost.")
 		this.guessLeft = 9
 	},
 
